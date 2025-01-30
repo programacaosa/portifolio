@@ -227,9 +227,38 @@
             <button class="filter-button">Mobile</button>
             <button class="filter-button">Chat</button>
             <button class="filter-button">Demonstração</button>
+            <button class="filter-button">Adulto</button>
         </div>
 
         <div class="projects-grid">
+            <!-- Adult Category -->
+            <a href="https://maudivas.com/" target="_blank" class="project-card">
+                <div class="project-image">💋</div>
+                <div class="project-content">
+                    <span class="category-label">Adulto</span>
+                    <h3 class="project-title">Mau Divas</h3>
+                    <p class="project-description">Portal de conteúdo adulto com sistema de assinaturas</p>
+                </div>
+            </a>
+
+            <a href="https://jogoscasal-24ud.onrender.com/" target="_blank" class="project-card">
+                <div class="project-image">🎲</div>
+                <div class="project-content">
+                    <span class="category-label">Adulto</span>
+                    <h3 class="project-title">Jogo para Casais</h3>
+                    <p class="project-description">Jogo interativo para casais com conteúdo adulto</p>
+                </div>
+            </a>
+
+            <a href="https://xsensy.com/" target="_blank" class="project-card">
+                <div class="project-image">🌙</div>
+                <div class="project-content">
+                    <span class="category-label">Adulto</span>
+                    <h3 class="project-title">XSensy</h3>
+                    <p class="project-description">Plataforma de conteúdo adulto com recursos avançados</p>
+                </div>
+            </a>
+
             <!-- Chat Systems -->
             <a href="https://app-rj0u.onrender.com/segunda/chat/" target="_blank" class="project-card">
                 <div class="project-image">💭</div>
@@ -269,26 +298,6 @@
                 </div>
             </a>
 
-            <!-- Web Apps -->
-            <a href="https://xsensy.com/" target="_blank" class="project-card">
-                <div class="project-image">🌐</div>
-                <div class="project-content">
-                    <span class="category-label">Web Apps</span>
-                    <h3 class="project-title">XSensy</h3>
-                    <p class="project-description">Aplicação web com funcionalidades avançadas</p>
-                </div>
-            </a>
-
-            <!-- Sistemas Mobile -->
-            <a href="https://papaleguas.site/mobilidade/" target="_blank" class="project-card">
-                <div class="project-image">🚗</div>
-                <div class="project-content">
-                    <span class="category-label">Mobile</span>
-                    <h3 class="project-title">App Mobilidade</h3>
-                    <p class="project-description">Sistema de gestão de mobilidade urbana</p>
-                </div>
-            </a>
-
             <!-- AI Projects -->
             <a href="https://papaleguas.site/inteligencia.php" target="_blank" class="project-card">
                 <div class="project-image">🤖</div>
@@ -299,13 +308,13 @@
                 </div>
             </a>
 
-            <!-- Games -->
-            <a href="https://jogoscasal-24ud.onrender.com/" target="_blank" class="project-card">
-                <div class="project-image">🎮</div>
+            <!-- Sistemas Mobile -->
+            <a href="https://papaleguas.site/mobilidade/" target="_blank" class="project-card">
+                <div class="project-image">🚗</div>
                 <div class="project-content">
-                    <span class="category-label">Jogos</span>
-                    <h3 class="project-title">Jogo Interativo</h3>
-                    <p class="project-description">Jogo online interativo para casais</p>
+                    <span class="category-label">Mobile</span>
+                    <h3 class="project-title">App Mobilidade</h3>
+                    <p class="project-description">Sistema de gestão de mobilidade urbana</p>
                 </div>
             </a>
 
@@ -361,9 +370,7 @@
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
                 button.classList.add('active');
                 
                 const category = button.textContent.toLowerCase();
