@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Completo - Desenvolvedor Full Stack</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #3b82f6;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--dark);
+            color: var(--light);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .filter-button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .filter-button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-label {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #e0f2fe;
+            color: var(--primary);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .project-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            transition: background 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .project-link:hover {
+            background: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .filters {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+            .filter-button {
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Portfólio de Desenvolvimento</h1>
+        <p>Desenvolvedor Full Stack & Especialista em Soluções Digitais</p>
+    </header>
+
+    <div class="container">
+        <div class="filters">
+            <button class="filter-button active">Todos</button>
+            <button class="filter-button">E-commerce</button>
+            <button class="filter-button">Sistemas</button>
+            <button class="filter-button">Web Apps</button>
+            <button class="filter-button">Jogos</button>
+            <button class="filter-button">IA</button>
+            <button class="filter-button">Mobile</button>
+        </div>
+
+        <div class="projects-grid">
+            <a href="https://kidlimpinho.com.br/" target="_blank" class="project-card">
+                <div class="project-image">🧼</div>
+                <div class="project-content">
+                    <span class="category-label">E-commerce</span>
+                    <h3 class="project-title">Kid Limpinho</h3>
+                    <p class="project-description">E-commerce especializado em produtos de limpeza com sistema completo de vendas</p>
+                </div>
+            </a>
+
+            <a href="https://txmobservicos.online/" target="_blank" class="project-card">
+                <div class="project-image">🔧</div>
+                <div class="project-content">
+                    <span class="category-label">Serviços</span>
+                    <h3 class="project-title">TXM Serviços</h3>
+                    <p class="project-description">Plataforma de serviços online com sistema de agendamento</p>
+                </div>
+            </a>
+
+            <a href="https://truckage.com.br/" target="_blank" class="project-card">
+                <div class="project-image">🚛</div>
+                <div class="project-content">
+                    <span class="category-label">Sistema</span>
+                    <h3 class="project-title">Truckage</h3>
+                    <p class="project-description">Sistema de gerenciamento de transporte e logística</p>
+                </div>
+            </a>
+
+            <a href="https://papaleguas.site/inteligencia.php" target="_blank" class="project-card">
+                <div class="project-image">🤖</div>
+                <div class="project-content">
+                    <span class="category-label">IA</span>
+                    <h3 class="project-title">IA Fashion Advisor</h3>
+                    <p class="project-description">Inteligência artificial para dicas de moda baseada em reconhecimento de imagens</p>
+                </div>
+            </a>
+
+            <a href="https://crm-whatsapp.streamlit.app/" target="_blank" class="project-card">
+                <div class="project-image">💬</div>
+                <div class="project-content">
+                    <span class="category-label">Sistema</span>
+                    <h3 class="project-title">CRM WhatsApp</h3>
+                    <p class="project-description">Sistema de gestão de relacionamento com clientes via WhatsApp</p>
+                </div>
+            </a>
+
+            <a href="https://programacaosa.github.io/pdv/" target="_blank" class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <span class="category-label">Sistema</span>
+                    <h3 class="project-title">PDV Online</h3>
+                    <p class="project-description">Sistema de ponto de venda web-based com controle de estoque</p>
+                </div>
+            </a>
+
+            <a href="https://beagrosolutions.com.br/" target="_blank" class="project-card">
+                <div class="project-image">🌱</div>
+                <div class="project-content">
+                    <span class="category-label">E-commerce</span>
+                    <h3 class="project-title">BE Agro Solutions</h3>
+                    <p class="project-description">Plataforma de soluções para o agronegócio</p>
+                </div>
+            </a>
+
+            <a href="https://programacaosa.github.io/app_ios/" target="_blank" class="project-card">
+                <div class="project-image">📱</div>
+                <div class="project-content">
+                    <span class="category-label">Mobile</span>
+                    <h3 class="project-title">App iOS Demo</h3>
+                    <p class="project-description">Demonstração de aplicativo iOS com interface moderna</p>
+                </div>
+            </a>
+
+            <a href="https://jogoscasal-24ud.onrender.com/" target="_blank" class="project-card">
+                <div class="project-image">🎮</div>
+                <div class="project-content">
+                    <span class="category-label">Jogos</span>
+                    <h3 class="project-title">Jogo Interativo</h3>
+                    <p class="project-description">Jogo online interativo para casais</p>
+                </div>
+            </a>
+
+            <a href="https://marketplace.baixatudoja.com/" target="_blank" class="project-card">
+                <div class="project-image">🛍️</div>
+                <div class="project-content">
+                    <span class="category-label">E-commerce</span>
+                    <h3 class="project-title">Marketplace</h3>
+                    <p class="project-description">Plataforma de marketplace multi-vendedor</p>
+                </div>
+            </a>
+
+            <a href="https://demo.click-delphi.com.br/delivery107/Demo" target="_blank" class="project-card">
+                <div class="project-image">🍔</div>
+                <div class="project-content">
+                    <span class="category-label">Sistema</span>
+                    <h3 class="project-title">Sistema Delivery</h3>
+                    <p class="project-description">Plataforma completa para gestão de delivery</p>
+                </div>
+            </a>
+
+            <a href="https://github.com/programacaosa" target="_blank" class="project-card">
+                <div class="project-image">💻</div>
+                <div class="project-content">
+                    <span class="category-label">Código</span>
+                    <h3 class="project-title">GitHub</h3>
+                    <p class="project-description">Repositório com diversos projetos open source</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const projects = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.textContent.toLowerCase();
+                
+                projects.forEach(project => {
+                    const projectCategory = project.querySelector('.category-label').textContent.toLowerCase();
+                    
+                    if (category === 'todos' || projectCategory === category) {
+                        project.style.display = 'flex';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
