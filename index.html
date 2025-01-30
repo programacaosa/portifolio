@@ -24,6 +24,7 @@
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             color: var(--dark);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .header {
@@ -31,6 +32,19 @@
             color: var(--light);
             padding: 3rem 1rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(37,99,235,0.1) 0%, rgba(30,64,175,0.1) 100%);
+            z-index: 1;
         }
 
         .header h1 {
@@ -39,11 +53,15 @@
             background: linear-gradient(90deg, #60a5fa, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
         }
 
         .header p {
             font-size: 1.2rem;
             opacity: 0.9;
+            position: relative;
+            z-index: 2;
         }
 
         .container {
@@ -58,6 +76,10 @@
             flex-wrap: wrap;
             margin: 2rem 0;
             justify-content: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
         }
 
         .filter-button {
@@ -94,7 +116,7 @@
             border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
             display: flex;
@@ -115,6 +137,8 @@
             justify-content: center;
             color: white;
             font-size: 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .project-content {
@@ -122,6 +146,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            background: white;
         }
 
         .category-label {
@@ -133,6 +158,9 @@
             font-size: 0.75rem;
             margin-bottom: 0.75rem;
             align-self: flex-start;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .project-title {
@@ -147,24 +175,7 @@
             font-size: 0.875rem;
             margin-bottom: 1rem;
             flex-grow: 1;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            transition: background 0.3s ease;
-            align-self: flex-start;
-        }
-
-        .project-link:hover {
-            background: var(--secondary);
+            line-height: 1.5;
         }
 
         @media (max-width: 768px) {
@@ -181,10 +192,21 @@
                 flex-direction: row;
                 overflow-x: auto;
                 padding-bottom: 1rem;
+                gap: 0.5rem;
             }
             .filter-button {
                 flex-shrink: 0;
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
             }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+            margin-top: 4rem;
         }
     </style>
 </head>
@@ -203,81 +225,81 @@
             <button class="filter-button">Jogos</button>
             <button class="filter-button">IA</button>
             <button class="filter-button">Mobile</button>
+            <button class="filter-button">Chat</button>
+            <button class="filter-button">Demonstração</button>
         </div>
 
         <div class="projects-grid">
+            <!-- Chat Systems -->
+            <a href="https://app-rj0u.onrender.com/segunda/chat/" target="_blank" class="project-card">
+                <div class="project-image">💭</div>
+                <div class="project-content">
+                    <span class="category-label">Chat</span>
+                    <h3 class="project-title">Chat Privado</h3>
+                    <p class="project-description">Sistema de chat seguro com mensagens privadas e criptografadas</p>
+                </div>
+            </a>
+
+            <a href="https://papaleguas.site/chat/" target="_blank" class="project-card">
+                <div class="project-image">💬</div>
+                <div class="project-content">
+                    <span class="category-label">Chat</span>
+                    <h3 class="project-title">Chat System</h3>
+                    <p class="project-description">Plataforma de chat em tempo real com interface moderna</p>
+                </div>
+            </a>
+
+            <!-- E-commerce -->
             <a href="https://kidlimpinho.com.br/" target="_blank" class="project-card">
                 <div class="project-image">🧼</div>
                 <div class="project-content">
                     <span class="category-label">E-commerce</span>
                     <h3 class="project-title">Kid Limpinho</h3>
-                    <p class="project-description">E-commerce especializado em produtos de limpeza com sistema completo de vendas</p>
+                    <p class="project-description">E-commerce especializado em produtos de limpeza</p>
                 </div>
             </a>
 
-            <a href="https://txmobservicos.online/" target="_blank" class="project-card">
-                <div class="project-image">🔧</div>
-                <div class="project-content">
-                    <span class="category-label">Serviços</span>
-                    <h3 class="project-title">TXM Serviços</h3>
-                    <p class="project-description">Plataforma de serviços online com sistema de agendamento</p>
-                </div>
-            </a>
-
+            <!-- Sistemas -->
             <a href="https://truckage.com.br/" target="_blank" class="project-card">
                 <div class="project-image">🚛</div>
                 <div class="project-content">
-                    <span class="category-label">Sistema</span>
+                    <span class="category-label">Sistemas</span>
                     <h3 class="project-title">Truckage</h3>
-                    <p class="project-description">Sistema de gerenciamento de transporte e logística</p>
+                    <p class="project-description">Sistema completo de gestão de transportes e logística</p>
                 </div>
             </a>
 
+            <!-- Web Apps -->
+            <a href="https://xsensy.com/" target="_blank" class="project-card">
+                <div class="project-image">🌐</div>
+                <div class="project-content">
+                    <span class="category-label">Web Apps</span>
+                    <h3 class="project-title">XSensy</h3>
+                    <p class="project-description">Aplicação web com funcionalidades avançadas</p>
+                </div>
+            </a>
+
+            <!-- Sistemas Mobile -->
+            <a href="https://papaleguas.site/mobilidade/" target="_blank" class="project-card">
+                <div class="project-image">🚗</div>
+                <div class="project-content">
+                    <span class="category-label">Mobile</span>
+                    <h3 class="project-title">App Mobilidade</h3>
+                    <p class="project-description">Sistema de gestão de mobilidade urbana</p>
+                </div>
+            </a>
+
+            <!-- AI Projects -->
             <a href="https://papaleguas.site/inteligencia.php" target="_blank" class="project-card">
                 <div class="project-image">🤖</div>
                 <div class="project-content">
                     <span class="category-label">IA</span>
                     <h3 class="project-title">IA Fashion Advisor</h3>
-                    <p class="project-description">Inteligência artificial para dicas de moda baseada em reconhecimento de imagens</p>
+                    <p class="project-description">IA para análise de moda e recomendações de looks</p>
                 </div>
             </a>
 
-            <a href="https://crm-whatsapp.streamlit.app/" target="_blank" class="project-card">
-                <div class="project-image">💬</div>
-                <div class="project-content">
-                    <span class="category-label">Sistema</span>
-                    <h3 class="project-title">CRM WhatsApp</h3>
-                    <p class="project-description">Sistema de gestão de relacionamento com clientes via WhatsApp</p>
-                </div>
-            </a>
-
-            <a href="https://programacaosa.github.io/pdv/" target="_blank" class="project-card">
-                <div class="project-image">💰</div>
-                <div class="project-content">
-                    <span class="category-label">Sistema</span>
-                    <h3 class="project-title">PDV Online</h3>
-                    <p class="project-description">Sistema de ponto de venda web-based com controle de estoque</p>
-                </div>
-            </a>
-
-            <a href="https://beagrosolutions.com.br/" target="_blank" class="project-card">
-                <div class="project-image">🌱</div>
-                <div class="project-content">
-                    <span class="category-label">E-commerce</span>
-                    <h3 class="project-title">BE Agro Solutions</h3>
-                    <p class="project-description">Plataforma de soluções para o agronegócio</p>
-                </div>
-            </a>
-
-            <a href="https://programacaosa.github.io/app_ios/" target="_blank" class="project-card">
-                <div class="project-image">📱</div>
-                <div class="project-content">
-                    <span class="category-label">Mobile</span>
-                    <h3 class="project-title">App iOS Demo</h3>
-                    <p class="project-description">Demonstração de aplicativo iOS com interface moderna</p>
-                </div>
-            </a>
-
+            <!-- Games -->
             <a href="https://jogoscasal-24ud.onrender.com/" target="_blank" class="project-card">
                 <div class="project-image">🎮</div>
                 <div class="project-content">
@@ -287,6 +309,27 @@
                 </div>
             </a>
 
+            <!-- CRM System -->
+            <a href="https://crm-whatsapp.streamlit.app/" target="_blank" class="project-card">
+                <div class="project-image">📱</div>
+                <div class="project-content">
+                    <span class="category-label">Sistemas</span>
+                    <h3 class="project-title">CRM WhatsApp</h3>
+                    <p class="project-description">Sistema de gestão de relacionamento via WhatsApp</p>
+                </div>
+            </a>
+
+            <!-- Demonstrações -->
+            <a href="https://demo.click-delphi.com.br/delivery107/Demo" target="_blank" class="project-card">
+                <div class="project-image">🍔</div>
+                <div class="project-content">
+                    <span class="category-label">Demonstração</span>
+                    <h3 class="project-title">Sistema Delivery</h3>
+                    <p class="project-description">Demo de sistema completo para delivery</p>
+                </div>
+            </a>
+
+            <!-- More E-commerce -->
             <a href="https://marketplace.baixatudoja.com/" target="_blank" class="project-card">
                 <div class="project-image">🛍️</div>
                 <div class="project-content">
@@ -296,25 +339,21 @@
                 </div>
             </a>
 
-            <a href="https://demo.click-delphi.com.br/delivery107/Demo" target="_blank" class="project-card">
-                <div class="project-image">🍔</div>
-                <div class="project-content">
-                    <span class="category-label">Sistema</span>
-                    <h3 class="project-title">Sistema Delivery</h3>
-                    <p class="project-description">Plataforma completa para gestão de delivery</p>
-                </div>
-            </a>
-
+            <!-- GitHub -->
             <a href="https://github.com/programacaosa" target="_blank" class="project-card">
                 <div class="project-image">💻</div>
                 <div class="project-content">
-                    <span class="category-label">Código</span>
+                    <span class="category-label">Sistemas</span>
                     <h3 class="project-title">GitHub</h3>
-                    <p class="project-description">Repositório com diversos projetos open source</p>
+                    <p class="project-description">Repositório com projetos open source</p>
                 </div>
             </a>
         </div>
     </div>
+
+    <footer>
+        <p>© 2025 - Todos os direitos reservados</p>
+    </footer>
 
     <script>
         const filterButtons = document.querySelectorAll('.filter-button');
